@@ -23,8 +23,8 @@ This project automates filling out Google Forms for placements of KJSCE students
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/google-form-auto-filler.git
-   cd google-form-auto-filler
+   git clone https://github.com/poonawala2303/Google-Forms-Auto-Fill.git
+   cd Google-Forms-Auto-Fill
 
 2. **Add Your Data**:
    Modify the formData object in the script to include the data you want to populate in the form.
