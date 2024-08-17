@@ -5,7 +5,8 @@ chrome.action.onClicked.addListener((tab) => {
     });
   });
   
-  function fillForm() {
+function fillForm() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const formData = {
       field1: "16010421083",
       field2: "0",
@@ -60,7 +61,28 @@ chrome.action.onClicked.addListener((tab) => {
       field36: "2003-09-23"
     };
   
+    // Loop for filling all the input fields whose type is "text"
     const inputs = document.querySelectorAll('input[type="text"]');
+
+    for (let i = 0; i < 29; i++) {
+        if (inputs.length > i) {
+        inputs[i].focus();
+        inputs[i].value = "";
+        inputs[i].value = formData[`field${i + 1}`];
+        inputs[i].dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+
+    for (let i = 29; i < 33; i++) {
+        if (inputs.length > i) {
+        inputs[i].focus();
+        inputs[i].value = "";
+        inputs[i].value = formData[`field${i + 3}`];
+        inputs[i].dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+
+    // Filling the input field where type = "date"
     const date = document.querySelectorAll('input[type="date"]');
 
     if(date.length>0){
@@ -69,264 +91,22 @@ chrome.action.onClicked.addListener((tab) => {
       date[0].value = formData.field36;
       date[0].dispatchEvent(new Event('input', { bubbles: true }));
     }
-  
-    if (inputs.length > 0) {
-      inputs[0].focus();
-      inputs[0].value = "";
-      inputs[0].value = formData.field1;
-      inputs[0].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  
-    if (inputs.length > 1) {
-      inputs[1].focus();
-      inputs[1].value = "";
-      inputs[1].value = formData.field2;
-      inputs[1].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  
-    if (inputs.length > 2) {
-      inputs[2].focus();
-      inputs[2].value = "";
-      inputs[2].value = formData.field3;
-      inputs[2].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  
-    if (inputs.length > 3) {
-      inputs[3].focus();
-      inputs[3].value = "";
-      inputs[3].value = formData.field4;
-      inputs[3].dispatchEvent(new Event('input', { bubbles: true }));
+
+    // Loop for filling all the input fields whose type is "textarea"
+    const textareas = document.querySelectorAll('textarea');
+
+    for (let i = 0; i < 2; i++) {
+        if (textareas.length > i) {
+            textareas[i].focus();
+            textareas[i].value = "";
+            textareas[i].value = formData[`field${i + 30}`];
+            textareas[i].dispatchEvent(new Event('input', { bubbles: true }));
+        } 
     }
 
-    if (inputs.length > 4) {
-      inputs[4].focus();
-      inputs[4].value = "";
-      inputs[4].value = formData.field5;
-      inputs[4].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 5) {
-      inputs[5].focus();
-      inputs[5].value = "";
-      inputs[5].value = formData.field6;
-      inputs[5].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 6) {
-      inputs[6].focus();
-      inputs[6].value = "";
-      inputs[6].value = formData.field7;
-      inputs[6].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 7) {
-      inputs[7].focus();
-      inputs[7].value = "";
-      inputs[7].value = formData.field8;
-      inputs[7].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 8) {
-      inputs[8].focus();
-      inputs[8].value = "";
-      inputs[8].value = formData.field9;
-      inputs[8].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 9) {
-      inputs[9].focus();
-      inputs[9].value = "";
-      inputs[9].value = formData.field10;
-      inputs[9].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 10) {
-      inputs[10].focus();
-      inputs[10].value = "";
-      inputs[10].value = formData.field11;
-      inputs[10].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 11) {
-      inputs[11].focus();
-      inputs[11].value = "";
-      inputs[11].value = formData.field12;
-      inputs[11].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 12) {
-        inputs[12].focus();
-        inputs[12].value = "";
-        inputs[12].value = formData.field13;
-        inputs[12].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 13) {
-        inputs[13].focus();
-        inputs[13].value = "";
-        inputs[13].value = formData.field14;
-        inputs[13].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-    
-    if (inputs.length > 14) {
-        inputs[14].focus();
-        inputs[14].value = "";
-        inputs[14].value = formData.field15;
-        inputs[14].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 15) {
-        inputs[15].focus();
-        inputs[15].value = "";
-        inputs[15].value = formData.field16;
-        inputs[15].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 16) {
-        inputs[16].focus();
-        inputs[16].value = "";
-        inputs[16].value = formData.field17;
-        inputs[16].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 17) {
-        inputs[17].focus();
-        inputs[17].value = "";
-        inputs[17].value = formData.field18;
-        inputs[17].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 18) {
-        inputs[18].focus();
-        inputs[18].value = "";
-        inputs[18].value = formData.field19;
-        inputs[18].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 19) {
-        inputs[19].focus();
-        inputs[19].value = "";
-        inputs[19].value = formData.field20;
-        inputs[19].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 20) {
-        inputs[20].focus();
-        inputs[20].value = "";
-        inputs[20].value = formData.field21;
-        inputs[20].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 21) {
-        inputs[21].focus();
-        inputs[21].value = "";
-        inputs[21].value = formData.field22;
-        inputs[21].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 22) {
-        inputs[22].focus();
-        inputs[22].value = "";
-        inputs[22].value = formData.field23;
-        inputs[22].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 23) {
-        inputs[23].focus();
-        inputs[23].value = "";
-        inputs[23].value = formData.field24;
-        inputs[23].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 24) {
-        inputs[24].focus();
-        inputs[24].value = "";
-        inputs[24].value = formData.field25;
-        inputs[24].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 25) {
-        inputs[25].focus();
-        inputs[25].value = "";
-        inputs[25].value = formData.field26;
-        inputs[25].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 26) {
-        inputs[26].focus();
-        inputs[26].value = "";
-        inputs[26].value = formData.field27;
-        inputs[26].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 27) {
-        inputs[27].focus();
-        inputs[27].value = "";
-        inputs[27].value = formData.field28;
-        inputs[27].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 28) {
-        inputs[28].focus();
-        inputs[28].value = "";
-        inputs[28].value = formData.field29;
-        inputs[28].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 29) {
-        const textareas = document.querySelectorAll('textarea');
-        
-        if (textareas.length > 0) {
-            textareas[0].focus();
-            textareas[0].value = "";
-            textareas[0].value = formData.field30;
-            textareas[0].dispatchEvent(new Event('input', { bubbles: true }));
-        }
-
-    }
-
-    if(inputs.length>30){
-        const textareas = document.querySelectorAll('textarea');
-
-        if (textareas.length > 1) {
-            textareas[1].focus();
-            textareas[1].value = "";
-            textareas[1].value = formData.field31;
-            textareas[1].dispatchEvent(new Event('input', { bubbles: true }));
-        }
-    }
-
-    if (inputs.length > 31) {
-        inputs[31].focus();
-        inputs[31].value = "";
-        inputs[31].value = formData.field32;
-        inputs[31].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 32) {
-        inputs[32].focus();
-        inputs[32].value = "";
-        inputs[32].value = formData.field33;
-        inputs[32].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 33) {
-        inputs[33].focus();
-        inputs[33].value = "";
-        inputs[33].value = formData.field34;
-        inputs[33].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
-    if (inputs.length > 34) {
-        inputs[34].focus();
-        inputs[34].value = "";
-        inputs[34].value = formData.field35;
-        inputs[34].dispatchEvent(new Event('input', { bubbles: true }));
-    }
-
+    // Filling all the input fields whose role = "radiogroup" . Selecting 'role' attribute because there was nothing like {input type="radio"} in google form
     const radioGroups = document.querySelectorAll('div[role="radiogroup"]');
 
-    // First group: Select the 2nd option
     if (radioGroups.length > 0) {
         const optionsInFirstGroup = radioGroups[0].querySelectorAll('div[role="radio"]');
         if (optionsInFirstGroup.length > 1) {
@@ -334,7 +114,6 @@ chrome.action.onClicked.addListener((tab) => {
         }
     }
 
-    // Second group: Select the 3rd option
     if (radioGroups.length > 1) {
         const optionsInSecondGroup = radioGroups[1].querySelectorAll('div[role="radio"]');
         if (optionsInSecondGroup.length > 1) {
@@ -342,7 +121,6 @@ chrome.action.onClicked.addListener((tab) => {
         }
     }
 
-    // Third group: Select the 1st option
     if (radioGroups.length > 2) {
         const optionsInThirdGroup = radioGroups[2].querySelectorAll('div[role="radio"]');
         if (optionsInThirdGroup.length > 0) {
@@ -350,7 +128,6 @@ chrome.action.onClicked.addListener((tab) => {
         }
     }
 
-    // Fourth group: Select the 2nd option
     if (radioGroups.length > 3) {
         const optionsInFourthGroup = radioGroups[3].querySelectorAll('div[role="radio"]');
         if (optionsInFourthGroup.length > 2) {
@@ -393,11 +170,11 @@ chrome.action.onClicked.addListener((tab) => {
         }
     }
 
+    // Filling the checkbox fields whose role = "checkbox" . Selecting 'role' attribute because there was nothing like {input type="checkbox"} in google form
     const checkboxDivs = document.querySelectorAll('div[role="checkbox"]');
 
-    // Example: Selecting the first three checkboxes
     if (checkboxDivs.length > 0) {
-        checkboxDivs[0].click();  // Click to select the first checkbox
+        checkboxDivs[0].click();  
     }
 
     // Select the "Add file" button using the aria-label or class name
@@ -406,5 +183,5 @@ chrome.action.onClicked.addListener((tab) => {
     if (addFileButton) {
         addFileButton.click(); // This will trigger the file picker dialog
     }
-
-  }
+    window.scrollTo(0, scrollTop);
+}

@@ -6,7 +6,16 @@
   <title>Auto Form Filler</title>
 </head>
 <style>
-  body div{
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  body div {
     border: 2px solid black;
     padding: 20px;
     border-radius: 20px;
@@ -15,45 +24,67 @@
     flex-direction: column;
     background-color: aqua;
     width: 400px;
+    position: relative;
   }
 
-  body div button{
+  body div button {
     color: white;
     font-weight: 600;
     font-size: 14px;
     margin: 12px;
-    padding: 14px 20px 14px 20px;
+    padding: 14px 20px;
     border-radius: 0.7em;
-    background: -webkit-linear-gradient(225deg, rgb(251, 175, 21), rgb(251, 21, 242),             
-    rgb(21, 198, 251)) 0% 0% / 300% 300%;
+    background: -webkit-linear-gradient(225deg, rgb(251, 175, 21), rgb(251, 21, 242), rgb(21, 198, 251)) 0% 0% / 300% 300%;
     background-size: 200% auto;
     -webkit-animation: gradient_move 3s ease infinite;
     animation: gradient_move 3s ease infinite;
+    border: none;
   }
 
-  body div button:hover{
+  body div button:hover {
     cursor: pointer;
   }
 
   @-webkit-keyframes gradient_move {
-  0%{background-position: 0% 92%}
-  50%{background-position: 100% 9%}
-  100%{background-position: 0% 92%}
-}
+    0% {background-position: 0% 92%}
+    50% {background-position: 100% 9%}
+    100% {background-position: 0% 92%}
+  }
 
-@keyframes gradient_move {
-  0%{background-position: 0% 92%}
-  50%{background-position: 100% 9%}
-  100%{background-position: 0% 92%}
-}
+  @keyframes gradient_move {
+    0% {background-position: 0% 92%}
+    50% {background-position: 100% 9%}
+    100% {background-position: 0% 92%}
+  }
+
+  #closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  #closePopup:before {
+    content: 'X';
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
 
 </style>
 <body>
   <div>
-  <h1>Auto Form Filler</h1>
-  <button id="fillForm">Fill Form</button>
-
-  <script src="popup.js"></script>
-</div>
+    <h1>Auto Form Filler</h1>
+    <button id="fillForm">Fill Form</button>
+    <button id="closePopup"></button>
+    <script src="popup.js"></script>
+  </div>
 </body>
 </html>
